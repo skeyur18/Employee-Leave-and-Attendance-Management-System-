@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ELAMS · Employee Leave &amp; Attendance Management System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="landing">
+  <nav class="lnav">
+    <div class="brand"><span class="logo">E</span><div><b>ELAMS</b></div></div>
+    <div class="lnav-r"><a href="#features">Features</a><a href="#how">How it works</a><div class="dots" data-dots></div><button class="cta" data-go>Open the app</button></div>
+  </nav>
+  <header class="lhero">
+    <div class="lhero-t">
+      <h1>Attendance and leave, sorted in a few taps.</h1>
+      <p>Check in, request time off and approve your team’s leave from one simple place.</p>
+      <div class="lbtns"><button class="cta big" data-go>Open the app</button><a class="ghostb" href="#features">See features</a></div>
+    </div>
+    <div class="mock">
+      <div class="mock-clock">09:15:42</div><small>Tuesday · Checked in 09:05</small>
+      <div class="mock-btn">Check out</div>
+      <div class="mock-row"><span class="tag APPROVED">Approved</span><span class="tag PENDING">Pending</span><span class="tag REJECTED">Rejected</span></div>
+    </div>
+  </header>
+  <section id="features" class="lsec">
+    <h2>Everything a small team needs</h2>
+    <div class="fgrid">
+      <div class="f c1"><i>⏱</i><h3>One-tap check in</h3><p>Clock in and out from your dashboard. Hours add up on their own.</p></div>
+      <div class="f c2"><i>🌴</i><h3>Easy leave requests</h3><p>Pick your dates, add a reason and follow the status.</p></div>
+      <div class="f c3"><i>✅</i><h3>Manager approvals</h3><p>Approve or reject in one click. The balance updates itself.</p></div>
+      <div class="f c4"><i>📅</i><h3>Live leave balance</h3><p>See how many days you have left before you apply.</p></div>
+      <div class="f c5"><i>📊</i><h3>Weekly hours chart</h3><p>A quick look at how your week is going.</p></div>
+      <div class="f c6"><i>👥</i><h3>Team directory</h3><p>Add people and set who is an employee or a manager.</p></div>
+    </div>
+  </section>
+  <section id="how" class="lsec alt">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><b>Check in each day</b><span>Tap the big button when you start and again when you finish.</span></li>
+      <li><b>Request leave</b><span>Choose dates and send the request to your manager.</span></li>
+      <li><b>Get a decision</b><span>Your manager approves it and your balance is updated.</span></li>
+    </ol>
+    <button class="cta big" data-go>Try it now</button>
+  </section>
+  <footer class="lfoot">Team 12 · 2410030152 · 2410030168 · 2410030370 · 2410030364 · 2410030361<br>Employee Leave and Attendance Management System</footer>
+</div>
+
+<div id="login" hidden>
+  <div class="login-wrap">
+    <div class="login-side">
+      <div class="brand"><span class="logo">E</span><div><b>ELAMS</b></div></div>
+      <h1>Welcome back</h1>
+      <p>Sign in to check in, request leave and keep your team’s attendance in one place.</p>
+      <div class="dots" data-dots></div>
+    </div>
+    <form class="login-card" id="loginForm">
+      <h2>Sign in</h2>
+      <label>Email<input type="email" id="lEmail" required autocomplete="username"></label>
+      <label>Password<input type="password" id="lPass" required autocomplete="current-password"></label>
+      <p class="err" id="lErr" role="alert"></p>
+      <button class="btn" type="submit">Sign in</button>
+      <button class="linkb" type="button" id="backSite">Back to website</button>
+      <div class="demo"><small>Demo accounts (click to fill in)</small>
+        <button type="button" data-fill="ravi@company.com|manager123">Manager · Ravi</button>
+        <button type="button" data-fill="priya@company.com|manager123">Manager · Priya</button>
+        <button type="button" data-fill="asha@company.com|employee123">Employee · Asha</button>
+        <button type="button" data-fill="vineeth@company.com|employee123">Employee · Vineeth</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="app" hidden>
+<aside class="side">
+  <div class="brand"><span class="logo">E</span><div><b>ELAMS</b><small>Leave &amp; Attendance</small></div></div>
+  <nav id="nav">
+    <button data-v="dashboard">Dashboard</button>
+    <button data-v="attendance">Attendance</button>
+    <button data-v="leave">My leave</button>
+    <button data-v="approvals" data-m>Approvals <i id="badge" hidden></i></button>
+    <button data-v="employees" data-m>Employees</button>
+    <button data-v="reports" data-m>Reports</button>
+    <button data-v="profile">My profile</button>
+  </nav>
+  <button class="ghost" id="home">Back to website</button>
+  <div class="team">Team 12<br><small>2410030152 · 2410030168<br>2410030370 · 2410030364<br>2410030361</small></div>
+</aside>
+
+<main>
+  <header class="top">
+    <div><h1 id="title">Dashboard</h1><p id="sub"></p></div>
+    <div class="topr"><div class="dots" data-dots></div><div class="chip" id="chip"></div><button class="mini no" id="logout">Sign out</button></div>
+  </header>
+
+  <section id="v-dashboard" class="view">
+    <div class="hero">
+      <div><p class="date" id="today"></p><div class="clock" id="clock">00:00:00</div><p class="status" id="status"></p></div>
+      <button class="punch" id="punch"><span id="punchTxt">Check in</span></button>
+    </div>
+    <div class="stats">
+      <div class="stat"><span>Leave balance</span><b id="sBal">0</b><small>days left</small></div>
+      <div class="stat"><span>Present this month</span><b id="sPres">0</b><small>days</small></div>
+      <div class="stat"><span>My pending requests</span><b id="sPend">0</b><small>awaiting approval</small></div>
+    </div>
+    <div class="stats four" id="teamStats" hidden>
+      <div class="stat"><span>Active employees</span><b id="tEmp">0</b></div>
+      <div class="stat"><span>Present today</span><b id="tPres">0</b></div>
+      <div class="stat"><span>On leave today</span><b id="tLeave">0</b></div>
+      <div class="stat"><span>Awaiting your approval</span><b id="tPend">0</b></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2>Hours this week</h2><div class="bars" id="bars"></div></div>
+      <div class="card"><h2>Recent leave</h2><ul class="list" id="recent"></ul></div>
+    </div>
+  </section>
+
+  <section id="v-attendance" class="view" hidden>
+    <div class="card">
+      <div class="filters">
+        <label>Month<input type="month" id="aMonth"></label>
+        <label data-m>Show<select id="aScope"><option value="mine">My records</option><option value="all">Everyone</option></select></label>
+      </div>
+      <div class="scroll"><table><thead id="attHead"></thead><tbody id="attBody"></tbody></table></div>
+    </div>
+  </section>
+
+  <section id="v-leave" class="view" hidden>
+    <div class="grid2">
+      <form class="card" id="leaveForm">
+        <h2>Apply for leave</h2>
+        <label>Type<select id="lType"></select></label>
+        <label>From<input type="date" id="lFrom" required></label>
+        <label>To<input type="date" id="lTo" required></label>
+        <label>Reason<textarea id="lWhy" rows="3" maxlength="300" placeholder="Family function, medical, travel…"></textarea></label>
+        <button class="btn" type="submit">Submit request</button>
+      </form>
+      <div class="card"><h2>My requests</h2><ul class="list" id="myLeaves"></ul></div>
+    </div>
+  </section>
+
+  <section id="v-approvals" class="view" hidden>
+    <div class="card"><h2>Pending requests</h2><ul class="list" id="pending"></ul></div>
+  </section>
+
+  <section id="v-employees" class="view" hidden>
+    <form class="card" id="empForm" style="margin-bottom:16px">
+      <h2>Add employee</h2>
+      <div class="filters">
+        <label>Full name<input id="eName" required></label>
+        <label>Email<input type="email" id="eEmail" required></label>
+        <label>Temporary password<input id="ePass" minlength="6" required></label>
+        <label>Department<input id="eDept" required></label>
+        <label>Designation<input id="eDes"></label>
+        <label>Role<select id="eRole"><option value="employee">Employee</option><option value="manager">Manager</option></select></label>
+        <button class="btn" type="submit" style="padding:10px 22px">Add employee</button>
+      </div>
+    </form>
+    <div class="card"><h2>All employees</h2>
+      <div class="scroll"><table><thead><tr><th>Employee</th><th>Department</th><th>Leave days</th><th>Role</th><th>Status</th></tr></thead><tbody id="empBody"></tbody></table></div>
+    </div>
+  </section>
+
+  <section id="v-reports" class="view" hidden>
+    <div class="card">
+      <div class="filters">
+        <label>Month<input type="month" id="rMonth"></label>
+        <a class="btn" id="csvLink" style="text-decoration:none;padding:10px 20px">Download CSV</a>
+      </div>
+      <p class="note" id="rNote" style="margin:0 0 12px"></p>
+      <div class="scroll"><table><thead><tr><th>Employee</th><th>Present</th><th>Hours</th><th>Attendance</th><th>Leave days</th><th>Pending</th></tr></thead><tbody id="repBody"></tbody></table></div>
+    </div>
+  </section>
+
+  <section id="v-profile" class="view" hidden>
+    <div class="grid2">
+      <div class="card"><h2>My details</h2><div id="prof"></div></div>
+      <form class="card" id="pwForm">
+        <h2>Change password</h2>
+        <label>Current password<input type="password" id="pOld" required autocomplete="current-password"></label>
+        <label>New password<input type="password" id="pNew" minlength="6" required autocomplete="new-password"></label>
+        <button class="btn" type="submit">Update password</button>
+      </form>
+    </div>
+  </section>
+</main>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="/app.js"></script>
+</body>
+</html>
